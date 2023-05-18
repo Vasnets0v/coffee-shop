@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block style %}<link rel="stylesheet" href="static/css/index.css">{% endblock %}
+
+{% block title %}Головна{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="row row-cols-6">
+              {% for item in baking %}
+                <div class="col"><img src="../static/img/product/{{item.img}}" class="img-thumbnail" alt="">
+                  <p style="text-align: center;">{{item.product_name}}</p>
+                  <p>Price ${{item.price}}</p>
+                  <p>Weight {{item.weight}}</p>
+                  <p>Amount {{item.amount}}</p>
+                  <p>Fast Delivery {{item.fast_delivery}}</p>
+                  <p>Product Type {{item.product_type}}</p>
+              </div>
+              {% endfor %}
+            </div>
+        </div>
+        <div style="background-color:cornsilk" class="col-md-2">
+           <form action="/execute_filtre" method="post">
+            <div class="form-check">
+                <input class="form-check-input" type="checkbox" id="fast_delivery" name="fast_delivery">
+                <label for="fast_delivery">Fast Delivery</label>
+              </div>
+              <p></p>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="mafin_checkbox">
+                <label for="mafin_checkbox">Mafin</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="icecream_checkbox">
+                <label for="icecream_checkbox">Icecream</label>
+              </div>
+              <div class="form-check">
+                <input class="form-check-input" type="checkbox" name="cake_checkbox">
+                <label for="cake_checkbox">Cake</label>
+              </div>
+              <p></p>
+              <div class="input-group input-group-sm mb-1">
+                <label class="price_label" for="price_in">From</label>
+                <input type="number" class="price_input" name="price_in" id="price_in">
+                <label class="price_label" for="price_out">To</label>
+                <input type="number" class="price_input" name="price_out">
+              </div>
+              <p></p>
+              <div class="d-grid gap-2 col-6 mx-auto">
+                <input type="submit" class="btn btn-primary" value="Застосувати">
+              </div>
+           </form>
+        </div> 
+</div>
+{% endblock %}

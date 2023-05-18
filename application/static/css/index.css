@@ -1,0 +1,39 @@
+.wrapper {
+    margin-top: 5%;
+    width: 85%;
+    margin-right: auto;
+    margin-left: auto;
+    }
+    
+    .col-sm-5 {
+    height: max-content;
+    background-color: azure;
+    margin: 20px 10px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    }
+    
+    .topic_ {
+    font-weight: bold;
+    text-shadow: 10px;
+    font-size: 18px;
+    }
+    
+    .button_centre {
+    text-align: center;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    }
+
+.col {
+block-size: 450px;
+display: block;
+}
+
+.price_input {
+    width: 30%;
+    margin: auto;
+}
+
+.price_label {
+    padding: 5px;
+}

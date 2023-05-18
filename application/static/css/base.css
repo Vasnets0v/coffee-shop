@@ -1,0 +1,57 @@
+.top_panel {
+    background-color: black;
+    margin-top: 25px;
+    padding-top: 10px;
+    height: 80px;
+    padding-left: 50px;
+    padding-right: 50px;
+    }
+    
+    .top_panel i {
+        color: white;
+        font-size: 30px;
+        padding-left: 25px;
+    }
+    
+    .top_panel a {
+    color: white;
+    text-decoration: none;
+    font-size: 26px;
+    }
+    
+    .top_panel  a:link {
+    color: white;
+    text-decoration: none;
+    border: none;
+    }
+    
+    .top_panel a:visited {
+    color: white;
+    text-decoration: none;
+    border: none;
+    }
+    
+    .top_panel a:hover {
+    color: white;
+    text-decoration: none;
+    border: none;
+    }
+    
+    .top_panel a:active {
+    color: white;
+    text-decoration: none;
+    border: none;
+    }
+    
+    .alert {
+        text-align: center;
+        width: 30vw;
+        margin: auto;
+        margin-bottom: 1vw;
+        background-color: #373252;
+        color: white;
+        border: none;
+        padding: 0.5vw;
+        border-radius: 0.4vw;
+        margin-top: 1%;
+    }

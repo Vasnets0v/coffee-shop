@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+{% block style %}<link rel="stylesheet" href="static/css/order.css">{% endblock %}
+
+{% block title %}замовлення{% endblock %}
+
+{% block content %}
+<div class="wrapper">
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Customer Name</th>
+            <th scope="col">Baking</th>
+            <th scope="col">Total price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <h1>orders for the amount ${{ price_all_orders }}</h1>
+          {% for order in orders %}
+            <tr>
+              <td>{{ order["name"] }}</td>
+              <td>
+                {% for baking in order["baking"] %}
+                  <p>{{ baking }} X{{ order["baking"][baking] }}</p>
+                {% endfor %}
+              </td>
+              <td>${{ order["total_price"] }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+</div>
+{% endblock %}

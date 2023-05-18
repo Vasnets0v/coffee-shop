@@ -1,6 +1,6 @@
 from __init__ import db_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy import Column, String, Integer, ForeignKey
+from sqlalchemy import Column, String, Integer
 from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
@@ -36,41 +36,23 @@ class Baking(Base):
         return f"id: {self.product_id}, name: {self.product_name}"
     
 
-class Customer(Base):
-    __tablename__ = "customer"
+class Order(Base):
+    __tablename__ = "order"
 
-    customer_id = Column("customer_id", Integer, primary_key=True)
-    full_name = Column("customer_full_name", String, nullable=False)
-    phone = Column("phone", Integer, nullable=False)
-
-
-    def __init__(self, customer_id, customer_name, phone):
-        self.customer_id = customer_id
-        self.customer_name = customer_name
-        self.phone = phone
-
-    def __repr__(self):
-        return self.customer_id
-
-
-# другій клас: замовлення на вироби
-class PaidOrder(Base):
-    __tablename__ = "paid_order"
-    
     order_id = Column("order_id", Integer, primary_key=True)
-    customer_id = Column("customer_id", Integer, ForeignKey("customer.customer_id"), nullable=False)
-    product_id = Column("product_id", Integer, ForeignKey("baking.product_id"), nullable=False)
-    num_of_items = Column("num_of_items", Integer, nullable=False)
+    customer_name = Column("customer_name", String)
+    baking = Column("baking", String)
+    amount = Column("amount", String)
 
 
-    def __init__(self, customer_id, product_id, num_of_items):
-        self.customer_id = customer_id
-        self.product_id = product_id
-        self.num_of_items = num_of_items
+    def __init__(self, customer_name, baking, amount):
+        self.customer_name = customer_name
+        self.baking = baking
+        self.amount = amount
 
     def __repr__(self):
-        return f"{self.customer_id} {self.product_id} {self.num_of_items}"
-    
+        return f"id {self.order_id}"
+
 
 Base.metadata.create_all(bind=db_engine)
 
